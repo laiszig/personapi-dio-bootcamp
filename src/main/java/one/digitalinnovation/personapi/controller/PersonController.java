@@ -6,10 +6,8 @@ import one.digitalinnovation.personapi.repository.PersonRepository;
 import one.digitalinnovation.personapi.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/people")
@@ -25,6 +23,7 @@ public class PersonController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO createPerson(@RequestBody Person person) {
         return personService.createPerson(person);
     }
