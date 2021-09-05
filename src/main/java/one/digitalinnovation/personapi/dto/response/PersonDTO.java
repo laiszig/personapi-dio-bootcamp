@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.boot.autoconfigure.web.servlet.ConditionalOnMissingFilterBean;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -34,5 +35,7 @@ public class PersonDTO {
 
     private String birthDate;
 
+    @Valid
+    @NotEmpty
     private List<PhoneDTO> phones;
 }
